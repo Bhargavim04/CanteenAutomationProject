@@ -1,0 +1,27 @@
+package com.example.spring.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.spring.entity.Customer;
+import com.example.spring.service.ICustomerService;
+
+@RestController
+public class CustomerController {
+
+	@Autowired
+	ICustomerService cusServ;
+	
+	// get all customers
+		@GetMapping("/customers")
+		ResponseEntity<List<Customer>> getAllCustomer() {
+			List<Customer> customers = cusServ.getAllCustomers();
+			return new ResponseEntity<>(customers, HttpStatus.OK);
+		}
+	
+}

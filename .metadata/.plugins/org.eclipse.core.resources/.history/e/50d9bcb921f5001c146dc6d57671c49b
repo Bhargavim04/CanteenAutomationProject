@@ -1,0 +1,43 @@
+package com.example.spring.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.spring.entity.Customer;
+import com.example.spring.repository.ICustomerRepository;
+
+@Service
+public class CustomerServiceImpl implements ICustomerService{
+
+	@Autowired
+	ICustomerRepository cusRepo;
+	
+	//get all customer details
+	@Override
+	public List<Customer> getAllCustomers() {
+		
+		return cusRepo.findAll();
+	}
+
+	//get customer by ID
+	@Override
+	public Customer getCusById(int cusId) {
+		Optional<Customer> cus = cusRepo.findById(cusId);
+		if(cus.isPresent()) {
+			return cus.get();
+		} else {
+			return null;
+		}
+	}
+
+	//add new customer
+	@Override
+	public Customer addCustomer(Customer cus) {
+		
+		return cusRepo.save(cus);
+	}
+	
+}

@@ -1,0 +1,39 @@
+package com.example.spring.service;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
+import com.example.spring.entity.Customer;
+
+@SpringBootTest
+public class CustomerServiceTest {
+
+	@Autowired
+	ICustomerService cusServ;
+	
+	@Test
+	void testGetAllCustomers() {
+		List<Customer> customers = cusServ.getAllCustomers();
+		assertEquals(2, customers.size(), "Entered number of customers are not present");
+		Customer cus = customers.get(0);
+		assertEquals("Priya", cus.getName(),"Name is not available");
+	}
+	
+	@Test
+	@Disabled
+	void testAddCus() {
+		Customer cus = new Customer();
+		cus.setCusId(0);
+		cus.setName("Divya");
+		cus.setMobileNo(874532652);
+		
+		Customer newCus= cusServ.addCustomer(cus);
+		assertEquals("Divya", newCus.getName());
+	}
+	
+	
+}
