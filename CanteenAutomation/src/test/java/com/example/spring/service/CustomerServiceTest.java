@@ -1,5 +1,6 @@
 package com.example.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Disabled;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
 import com.example.spring.exception.CustomerNotFoundException;
 
