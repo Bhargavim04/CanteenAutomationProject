@@ -58,7 +58,7 @@ public class CustomerController {
 
 	// update employee address details
 	@PatchMapping("/customer/addr/{id}")
-	ResponseEntity<Customer> updateCusAddr(@PathVariable("id") int cusId,@Valid @RequestBody Address newAddr)
+	ResponseEntity<Customer> updateCusAddr(@PathVariable("id") int cusId, @Valid @RequestBody Address newAddr)
 			throws CustomerNotFoundException {
 		Customer cus = cusServ.updateCusAddr(cusId, newAddr);
 		return new ResponseEntity<>(cus, HttpStatus.OK);

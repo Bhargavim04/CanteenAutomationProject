@@ -9,10 +9,15 @@ import com.example.spring.exception.CustomerNotFoundException;
 public interface ICustomerService {
 
 	List<Customer> getAllCustomers();
+
 	Customer getCusById(int cusId) throws CustomerNotFoundException;
+
 	Customer addCustomer(Customer cus);
+
 	Customer deleteCustomer(int cusId) throws CustomerNotFoundException;
+
 	Customer updateCusAddr(int cusId, Address newAddr) throws CustomerNotFoundException;
+
 	Customer updateCustomerById(int cusId, Customer cus) throws CustomerNotFoundException;
 
 }

@@ -1,11 +1,8 @@
 package com.example.spring.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
 import lombok.Data;
 
 @Entity

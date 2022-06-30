@@ -18,7 +18,4 @@ public interface ICanteenFoodService {
 
 	CanteenFood saveCanteenFood(CanteenFood foodId);
 
-	
-	
-
 }

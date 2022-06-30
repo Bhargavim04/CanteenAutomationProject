@@ -17,6 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
+import com.example.spring.entity.Login;
 import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.repository.ICustomerRepository;
 
@@ -78,11 +79,13 @@ public class CustomerServiceMockitoTest {
 	void testUpdateCustomerById() throws CustomerNotFoundException {
 		Address addr = new Address(10,234,"Yelahanka","Bangalore","Karnataka",560064);
 		List<Address> list= new ArrayList();
+		Login login = new Login("abc@gmail.com","abc@123");
 		Customer cus = new Customer();
 		cus.setCusId(10);
 		cus.setCusName("Ravi");
 		cus.setCusContactNo("9845600809");
 		cus.setAddress(list);
+		cus.setLogin(login);
 		
 		
 		Customer updatedCus = new Customer();
@@ -90,6 +93,7 @@ public class CustomerServiceMockitoTest {
 		updatedCus.setCusName("Sam");
 		updatedCus.setCusContactNo("9845600809");
 		updatedCus.setAddress(list);
+		updatedCus.setLogin(login);
 		
 		Mockito.when(cusRepo.findById(10)).thenReturn(Optional.of(cus));
 		Mockito.when(cusRepo.save(cus)).thenReturn(updatedCus);
@@ -101,19 +105,20 @@ public class CustomerServiceMockitoTest {
 	void testUpdateCustomerAddr() throws CustomerNotFoundException {
 		Address addr = new Address(10,234,"Yelahanka","Bangalore","Karnataka",560064);
 		List<Address> listAddr= new ArrayList();
+		Login login = new Login("ram@gmail.com","ram@123");
 		Customer cus = new Customer();
 		cus.setCusId(10);
 		cus.setCusName("Ravi");
 		cus.setCusContactNo("9845600809");
 		cus.setAddress(listAddr);
-		
+		cus.setLogin(login);
 		
 		Customer updatedCus = new Customer();
 		updatedCus.setCusId(10);
 		updatedCus.setCusName("Sam");
 		updatedCus.setCusContactNo("9845600809");
 		updatedCus.setAddress(listAddr);
-		
+		updatedCus.setLogin(login);
 		Mockito.when(cusRepo.findById(10)).thenReturn(Optional.of(cus));
 		Mockito.when(cusRepo.save(cus)).thenReturn(updatedCus);
 		

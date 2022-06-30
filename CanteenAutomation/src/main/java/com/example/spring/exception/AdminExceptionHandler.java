@@ -11,21 +11,16 @@ import com.example.spring.entity.ErrorResponse;
 
 @ControllerAdvice
 public class AdminExceptionHandler {
-		@ExceptionHandler(AdminNotFoundException.class)
-		public ResponseEntity<ErrorResponse> handleException(AdminNotFoundException exception) {
-	
-		
-	       ErrorResponse error = new ErrorResponse();
-	       
-	       error.setStatus(HttpStatus.NOT_FOUND.value());  //404 not found
-	       error.setMessage(exception.getMessage());     //get message from exception
-	       //error.setTimeStamp(Sysyem.currentTimeMillis());
-	       error.setTimeStamp(LocalDateTime.now());  //update system time
-	       
-	       return new ResponseEntity<> (error,HttpStatus.NOT_FOUND);  //404 not found
-		}
+	@ExceptionHandler(AdminNotFoundException.class)
+	public ResponseEntity<ErrorResponse> handleException(AdminNotFoundException exception) {
+
+		ErrorResponse error = new ErrorResponse();
+
+		error.setStatus(HttpStatus.NOT_FOUND.value()); // 404 not found
+		error.setMessage(exception.getMessage()); // get message from exception
+		// error.setTimeStamp(Sysyem.currentTimeMillis());
+		error.setTimeStamp(LocalDateTime.now()); // update system time
+
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND); // 404 not found
+	}
 }
-	       
-	       
-
-

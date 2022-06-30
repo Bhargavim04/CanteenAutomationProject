@@ -16,6 +16,7 @@ public class AdminServiceImpl implements IAdminService {
 	private static final Admin Admin = null;
 	@Autowired
 	IAdminRepository adminRepo;
+
 	@Override
 	public Admin addAdmin(Admin admin) {
 		// TODO Auto-generated method stub
@@ -23,39 +24,36 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public Admin deleteAdmin(int adminId) throws AdminNotFoundException { 
-		Optional<Admin> admin= adminRepo.findById(adminId);
-		if(admin.isPresent()) {
-		 adminRepo.deleteById(adminId);
+	public Admin deleteAdmin(int adminId) throws AdminNotFoundException {
+		Optional<Admin> admin = adminRepo.findById(adminId);
+		if (admin.isPresent()) {
+			adminRepo.deleteById(adminId);
 		} else {
-			throw new AdminNotFoundException("Admin not found with admin id "+adminId);
+			throw new AdminNotFoundException("Admin not found with admin id " + adminId);
 		}
-		 return admin.get();
-		
+		return admin.get();
+
 	}
-	
-@Override
-	public Admin getAdminById(int adminId) throws AdminNotFoundException  {
+
+	@Override
+	public Admin getAdminById(int adminId) throws AdminNotFoundException {
 		// TODO Auto-generated method stub
-		Optional<Admin> admin= adminRepo.findById(adminId);
-		if(admin.isPresent()) {
+		Optional<Admin> admin = adminRepo.findById(adminId);
+		if (admin.isPresent()) {
 			return admin.get();
 		} else {
-			throw new AdminNotFoundException("Admin not found with admin id "+adminId);
+			throw new AdminNotFoundException("Admin not found with admin id " + adminId);
 		}
 	}
 
 	@Override
-	public Admin updateAdmin(Admin admin,int adminId)  { 
+	public Admin updateAdmin(Admin admin, int adminId) {
 		Optional<Admin> dbAdmin = adminRepo.findById(adminId);
-		if(dbAdmin.isPresent()) {
+		if (dbAdmin.isPresent()) {
 			return adminRepo.save(admin);
 		} else {
 			return null;
 		}
 	}
 
-	
-	}
-
-
+}

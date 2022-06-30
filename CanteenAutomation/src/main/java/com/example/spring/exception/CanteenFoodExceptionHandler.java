@@ -21,6 +21,4 @@ public class CanteenFoodExceptionHandler {
 		
 		return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
 	}
-
-
 }

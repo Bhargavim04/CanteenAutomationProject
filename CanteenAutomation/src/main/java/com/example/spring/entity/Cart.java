@@ -13,14 +13,14 @@ import lombok.Data;
 @Entity
 @Data
 public class Cart {
-	
+
 	@Id
 	@GeneratedValue
 	private int cartId;
-	@DecimalMin(value="100", message="Cart should contain minimum 100 price")
+	@DecimalMin(value = "100", message = "Cart should contain minimum 100 price")
 	private double cartTotal;
 
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="itemId")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "itemId")
 	private FoodItem foodItem;
 }

@@ -33,7 +33,7 @@ public class PaymentServiceTest {
 		Login login = new Login();
 		login.setEmail("vijaya@gmail.com");
 		login.setPassword("vijaya@123");
-		payment.setLogin(login);
+		
 		
 		}
 	@Test

@@ -14,7 +14,6 @@ public class StaffExceptionHandler {
 		@ExceptionHandler(StaffNotFoundException.class)
 		public ResponseEntity<ErrorResponse> handleException(StaffNotFoundException exception) {
 	
-		
 	       ErrorResponse error = new ErrorResponse();
 	       
 	       error.setStatus(HttpStatus.NOT_FOUND.value());  //404 not found
