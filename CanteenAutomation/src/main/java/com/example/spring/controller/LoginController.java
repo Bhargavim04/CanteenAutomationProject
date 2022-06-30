@@ -1,4 +1,4 @@
-package com.example.springCore.controller;
+package com.example.spring.controller;
 
 import java.util.Optional;
 
@@ -56,8 +56,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springCore.entity.Login;
-import com.example.springCore.service.ILoginService;
+import com.example.spring.entity.Login;
+import com.example.spring.service.ILoginService;
 
 @RestController
 public class LoginController {

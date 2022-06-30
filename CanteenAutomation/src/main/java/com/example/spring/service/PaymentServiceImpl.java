@@ -1,12 +1,12 @@
-package com.example.springCore.service;
+package com.example.spring.service;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springCore.entity.Payment;
-import com.example.springCore.exception.PaymentNotFoundException;
-import com.example.springCore.repository.IPaymentRepository;
+import com.example.spring.entity.Payment;
+import com.example.spring.exception.PaymentNotFoundException;
+import com.example.spring.repository.IPaymentRepository;
 @Service
 public class PaymentServiceImpl implements IPaymentService{
 	

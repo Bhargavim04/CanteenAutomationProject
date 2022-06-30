@@ -1,13 +1,13 @@
-package com.example.springCore.service;
+package com.example.spring.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springCore.entity.Login;
-import com.example.springCore.exception.InvalidCredentialsException;
-import com.example.springCore.repository.ILoginRepository;
+import com.example.spring.entity.Login;
+import com.example.spring.exception.InvalidCredentialsException;
+import com.example.spring.repository.ILoginRepository;
 
 import antlr.collections.List;
 
@@ -44,7 +44,7 @@ public class LoginServiceImpl implements ILoginService{
         }
     }*/
 	@Override
-	public Login login(Login credentials) {;//email,password
+	public Login login(Login credentials) throws InvalidCredentialsException {;//email,password
 	
 	//get login details from db
 	Optional<Login> dbLoginCred= loginRepo.findById(credentials.getEmail());

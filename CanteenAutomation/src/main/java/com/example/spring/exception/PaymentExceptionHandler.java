@@ -1,4 +1,4 @@
-package com.example.springCore.exception;
+package com.example.spring.exception;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.example.springCore.entity.ErrorResponse;
+import com.example.spring.entity.ErrorResponse;
 @ControllerAdvice
 
 public class PaymentExceptionHandler {

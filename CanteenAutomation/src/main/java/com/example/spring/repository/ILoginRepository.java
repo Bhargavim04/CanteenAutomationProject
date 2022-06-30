@@ -1,9 +1,9 @@
-package com.example.springCore.repository;
+package com.example.spring.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.springCore.entity.Login;
+import com.example.spring.entity.Login;
 
 
 @Repository

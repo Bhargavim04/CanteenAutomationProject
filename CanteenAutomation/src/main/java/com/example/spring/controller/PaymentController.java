@@ -1,4 +1,4 @@
-package com.example.springCore.controller;
+package com.example.spring.controller;
 
 import java.util.List;
 import javax.validation.Valid;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springCore.entity.Payment;
-import com.example.springCore.exception.PaymentNotFoundException;
-import com.example.springCore.service.IPaymentService;
+import com.example.spring.entity.Payment;
+import com.example.spring.exception.PaymentNotFoundException;
+import com.example.spring.service.IPaymentService;
 
 
 @RestController

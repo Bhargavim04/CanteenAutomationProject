@@ -1,8 +1,9 @@
-package com.example.springCore.service;
+package com.example.spring.service;
 
 import java.util.Optional;
 
-import com.example.springCore.entity.Login;
+import com.example.spring.entity.Login;
+import com.example.spring.exception.InvalidCredentialsException;
 
 import antlr.collections.List;
 
@@ -10,7 +11,7 @@ import antlr.collections.List;
 
 public interface ILoginService {
 	
-	Login login(Login credentials);
+	Login login(Login credentials) throws InvalidCredentialsException;
 
 	Login addLogin(Login login);
 

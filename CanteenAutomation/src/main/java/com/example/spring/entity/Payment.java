@@ -1,4 +1,4 @@
-package com.example.springCore.entity;
+package com.example.spring.entity;
 
 import java.util.List;
 import java.util.Set;

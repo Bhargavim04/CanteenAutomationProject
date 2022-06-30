@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 public class ErrorResponse {
 	
-	int status;
-	String message;
-	LocalDateTime timeStamp;
+	private int status;
+	private String message;
+	private LocalDateTime timeStamp;
 
 }

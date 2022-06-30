@@ -1,4 +1,4 @@
-package com.example.springCore.exception;
+package com.example.spring.exception;
 
 public class PaymentNotFoundException  extends Exception{
 	

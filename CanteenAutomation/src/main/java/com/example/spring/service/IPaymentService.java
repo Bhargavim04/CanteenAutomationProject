@@ -1,9 +1,9 @@
-package com.example.springCore.service;
+package com.example.spring.service;
 
 import java.util.List;
 
-import com.example.springCore.entity.Payment;
-import com.example.springCore.exception.PaymentNotFoundException;
+import com.example.spring.entity.Payment;
+import com.example.spring.exception.PaymentNotFoundException;
 
 public interface IPaymentService  {
 	

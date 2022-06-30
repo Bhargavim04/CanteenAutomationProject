@@ -1,4 +1,4 @@
-package com.example.springCore.entity;
+package com.example.spring.entity;
 
 /*import javax.persistence.Entity;
 import javax.persistence.Id;

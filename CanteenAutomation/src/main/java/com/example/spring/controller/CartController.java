@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring.entity.Cart;
-import com.example.spring.entity.FoodItem;
 import com.example.spring.exception.CartNotFoundException;
 import com.example.spring.service.ICartService;
 
