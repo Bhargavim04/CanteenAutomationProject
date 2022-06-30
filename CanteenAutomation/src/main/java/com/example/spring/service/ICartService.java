@@ -3,7 +3,6 @@ package com.example.spring.service;
 import java.util.List;
 
 import com.example.spring.entity.Cart;
-import com.example.spring.entity.FoodItem;
 import com.example.spring.exception.CartNotFoundException;
 
 public interface ICartService {

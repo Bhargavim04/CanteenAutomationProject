@@ -10,5 +10,4 @@ import com.example.spring.entity.FoodItem;
 public interface ICartRepository extends JpaRepository<Cart, Integer> {
 
 	FoodItem save(FoodItem foodItem);
-
 }

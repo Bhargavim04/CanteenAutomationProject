@@ -20,9 +20,7 @@ public class Cart {
 	@DecimalMin(value="100", message="Cart should contain minimum 100 price")
 	private double cartTotal;
 
-	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="itemId")
 	private FoodItem foodItem;
-
 }

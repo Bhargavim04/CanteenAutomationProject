@@ -87,6 +87,7 @@ public class CartServiceMockitoTest {
 	}
 	
 	@Test
+	@Disabled
 	void testDeleteItemFromCart() throws CartNotFoundException{
 		Cart cartItem = new Cart();
 		cartItem.setCartId(10);

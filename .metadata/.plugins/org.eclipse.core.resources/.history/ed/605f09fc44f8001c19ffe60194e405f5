@@ -1,0 +1,51 @@
+package com.example.spring.controller;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.spring.entity.Order1;
+import com.example.spring.service.OrderService;
+
+@RestController
+@RequestMapping(path="/order")
+public class OrderController {
+	@Autowired
+	  private OrderService orderService;
+	  
+	  public OrderController(OrderService orderService) {
+	    this.orderService=orderService;
+	  }
+	  
+	  @PostMapping(path="/create")
+	  public Order1 createOrder(@RequestBody Order1 order) {
+	    System.out.println(order.toString());
+	    return orderService.createOrder(order);
+	  }
+	  
+	  @GetMapping(path="/list")
+	  private List<Order1> listAllOrders(){
+	    return orderService.listAllOrders();
+	  }
+	  
+	  @GetMapping(path="/{id}")
+	  private Order1 getOrderDetailsById(@PathVariable("id") Long id) {
+	    return orderService.selectOrderById(id).orElse(null);
+	  }
+	  @PutMapping(path="/update")
+	  public int updateOrder(@RequestBody Order1 order) {
+	    return orderService.updateOrderById(order.getOrderId(), order);
+	  }
+	  @DeleteMapping(path="/{id}")
+	  private void deleteOrderById(@PathVariable("id") Long id) {
+	    orderService.deleteOrderById(id);
+	  }
+	}
+

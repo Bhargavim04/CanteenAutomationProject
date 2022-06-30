@@ -10,24 +10,12 @@ import com.example.spring.entity.CanteenFood;
 import com.example.spring.exception.CanteenFoodNotFoundException;
 import com.example.spring.repository.CanteenFoodRepository;
 
-
-
 @Service
-public  class CanteenFoodServiceImpl implements ICanteenFoodService {
-	
+public class CanteenFoodServiceImpl implements ICanteenFoodService {
+
 	private static final CanteenFood CanteenFood = null;
 	@Autowired
-	 CanteenFoodRepository canteenFoodRepository;
-	/*
-	public CanteenFoodServiceImpl(ICanteenFoodRepository canteenFoodRepository) {
-		super();
-		this.canteenFoodRepository=(CanteenFoodRepository) canteenFoodRepository;
-	}
-	*/
-	
-
-	
-	
+	CanteenFoodRepository canteenFoodRepository;
 
 	@Override
 	public List<CanteenFood> getAllCanteenFood() {
@@ -37,11 +25,11 @@ public  class CanteenFoodServiceImpl implements ICanteenFoodService {
 
 	@Override
 	public CanteenFood getCanteenById(int foodId) throws CanteenFoodNotFoundException {
-		Optional<CanteenFood> food=canteenFoodRepository.findById(foodId);
-		if(food.isPresent()) {
+		Optional<CanteenFood> food = canteenFoodRepository.findById(foodId);
+		if (food.isPresent()) {
 			return food.get();
-		}else {
-			throw new CanteenFoodNotFoundException("CanteenFood not found with food id "+foodId);
+		} else {
+			throw new CanteenFoodNotFoundException("CanteenFood not found with food id " + foodId);
 		}
 	}
 
@@ -52,12 +40,12 @@ public  class CanteenFoodServiceImpl implements ICanteenFoodService {
 	}
 
 	@Override
-	public CanteenFood deleteCanteenFood(int foodId) throws CanteenFoodNotFoundException{
-		Optional<CanteenFood> canteenFood =canteenFoodRepository.findById(foodId);
-		if(canteenFood.isPresent()) {
+	public CanteenFood deleteCanteenFood(int foodId) throws CanteenFoodNotFoundException {
+		Optional<CanteenFood> canteenFood = canteenFoodRepository.findById(foodId);
+		if (canteenFood.isPresent()) {
 			canteenFoodRepository.deleteById(foodId);
-		}else {
-			throw new CanteenFoodNotFoundException("CanteenFood not found with food id "+foodId);
+		} else {
+			throw new CanteenFoodNotFoundException("CanteenFood not found with food id " + foodId);
 		}
 		return canteenFood.get();
 	}
@@ -65,15 +53,13 @@ public  class CanteenFoodServiceImpl implements ICanteenFoodService {
 	@Override
 	public CanteenFood updateFoodQuantity(int foodId, int foodQuantity) throws CanteenFoodNotFoundException {
 		Optional<CanteenFood> canteenFood = canteenFoodRepository.findById(foodId);
-		if(canteenFood.isPresent()) {
-			CanteenFood cf=canteenFood.get();
+		if (canteenFood.isPresent()) {
+			CanteenFood cf = canteenFood.get();
 			cf.setFoodQuantity(foodQuantity);
 			return canteenFoodRepository.save(cf);
 		} else {
-			throw new CanteenFoodNotFoundException("CanteenFood not found with food id "+foodId);
-		} 
-		
-	
+			throw new CanteenFoodNotFoundException("CanteenFood not found with food id " + foodId);
+		}
 
 	}
 
@@ -82,5 +68,5 @@ public  class CanteenFoodServiceImpl implements ICanteenFoodService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	}
+
+}

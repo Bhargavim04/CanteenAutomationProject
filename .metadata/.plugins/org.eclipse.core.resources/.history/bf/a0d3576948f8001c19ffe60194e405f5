@@ -1,0 +1,12 @@
+package com.example.spring.repository;
+import java.util.List;
+import java.util.Optional;
+import com.example.spring.entity.Order1;
+public interface OrderRepository {
+	Order1 insertOrder(Order1 order);
+
+	  List<Order1> listAllOrders();
+	  Optional<Order1> selectOrderById(int id);
+	  int deleteOrderById(int id);
+	  int updateOrderById(int id,Order1 order);
+}
