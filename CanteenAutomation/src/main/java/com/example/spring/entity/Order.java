@@ -2,19 +2,29 @@ package com.example.spring.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity(name="Order")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	Long id;
 	private String OrderName;
 	private String OrderDescription;
 	private String address;
+	
+	public Order() {
+		super();
+	}
 	
 	public Order(@JsonProperty("id")Long id,
 			@JsonProperty("name")String orderName,
