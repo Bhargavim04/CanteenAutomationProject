@@ -23,6 +23,8 @@ public interface ICardRepository extends JpaRepository<Card, Integer>{
 
 	Card deleteById(int cardId);
 
-	Card getCardId(int i);
+	
+
+	
 
 }

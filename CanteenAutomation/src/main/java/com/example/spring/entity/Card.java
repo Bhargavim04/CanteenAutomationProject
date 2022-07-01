@@ -84,18 +84,22 @@ public class Card {
 		// TODO Auto-generated method stub
 		
 	}
-	public Integer getCardTotal() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	public Card thenReturn(Card updatedCardId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public List<Card> getAllCardDetails() {
+	
+	public Integer getByCardId() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/*public String getCardBankName() {
+		return cardBankName;
+	}
+	public void setCardBankName(String cardBankName) {
+		this.cardBankName = cardBankName;
+	}*/
 	
 	
 	
