@@ -70,12 +70,5 @@ public class CartController {
 		return new ResponseEntity<>(updatedItem, HttpStatus.OK);
 	}
 
-	// update item of cart by itemId
-//	@PatchMapping("/updateitem/{id}")
-//	ResponseEntity<Cart> updateCartByItemId(@PathVariable("id") int cartId, int itemId) {
-//		Cart updatedItem = cartServ.updateItemId(cartId, itemId);
-//		return new ResponseEntity<>(updatedItem, HttpStatus.OK);
-//	
-//	}
 
 }

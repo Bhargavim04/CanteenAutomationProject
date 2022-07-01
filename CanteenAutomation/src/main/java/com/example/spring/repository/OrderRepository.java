@@ -24,11 +24,12 @@ public class OrderRepository {
 	}
 	
 	public Order selectOrderById(Long id){
-		Optional<Order> order=listOfOrders.stream().filter(od->od.getId().equals(id)).findFirst();
-		if(order.isEmpty()) {
-			throw new OrderIdNotFoundException("404","Order Id Not found in the DataBase");
-		}
-		return order.get();
+		//Optional<Order> order=listOfOrders.stream().filter(od->od.getId().equals(id)).findFirst();
+		//if(order.isEmpty()) {
+		//	throw new OrderIdNotFoundException("404","Order Id Not found in the DataBase");
+		//}
+		//return order.get();
+		return null;
 	}
 	
 	public Long deleteOrderById(Long id) {
