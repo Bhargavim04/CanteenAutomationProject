@@ -2,6 +2,7 @@ package com.example.spring.service;
 
 import java.util.List;
 
+import com.example.spring.dto.CustomerDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
 import com.example.spring.exception.CustomerNotFoundException;
@@ -19,5 +20,9 @@ public interface ICustomerService {
 	Customer updateCusAddr(int cusId, Address newAddr) throws CustomerNotFoundException;
 
 	Customer updateCustomerById(int cusId, Customer cus) throws CustomerNotFoundException;
+
+	CustomerDto getCusDtoById(int cusId) throws CustomerNotFoundException;
+
+	CustomerDto updateCusDtoById(int cusId, CustomerDto cusDto) throws CustomerNotFoundException;
 
 }

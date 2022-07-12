@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,12 +17,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring.dto.CustomerDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
 import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.service.ICustomerService;
 
 @RestController
+@CrossOrigin // (origins="http://localhost:3000")
 public class CustomerController {
 
 	@Autowired
@@ -41,6 +44,13 @@ public class CustomerController {
 		return new ResponseEntity<>(cus, HttpStatus.OK);
 	}
 
+	// get customer Dto based on customer id
+	@GetMapping("/customer/dto/{id}")
+	ResponseEntity<CustomerDto> getCusDtoById(@PathVariable("id") int cusId) throws CustomerNotFoundException {
+		CustomerDto cus = cusServ.getCusDtoById(cusId);
+		return new ResponseEntity<>(cus, HttpStatus.OK);
+	}
+
 	// add new customer
 	@PostMapping("/customer")
 	ResponseEntity<Customer> addCustomer(@Valid @RequestBody Customer cus) {
@@ -53,6 +63,14 @@ public class CustomerController {
 	ResponseEntity<Customer> updateCustomerById(@RequestBody Customer cus, @PathVariable("id") int cusId)
 			throws CustomerNotFoundException {
 		Customer updatedCus = cusServ.updateCustomerById(cusId, cus);
+		return new ResponseEntity<>(updatedCus, HttpStatus.OK);
+	}
+
+	// Update Customer
+	@PutMapping("/customer/dto/{id}")
+	ResponseEntity<CustomerDto> updateCustomerDtoById(@RequestBody CustomerDto cusDto, @PathVariable("id") int cusId)
+			throws CustomerNotFoundException {
+		CustomerDto updatedCus = cusServ.updateCusDtoById(cusId, cusDto);
 		return new ResponseEntity<>(updatedCus, HttpStatus.OK);
 	}
 

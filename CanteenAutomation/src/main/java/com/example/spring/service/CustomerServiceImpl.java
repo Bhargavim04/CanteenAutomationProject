@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.spring.dto.CustomerDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
+import com.example.spring.entity.Login;
 import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.repository.ICustomerRepository;
 
@@ -91,6 +93,47 @@ public class CustomerServiceImpl implements ICustomerService {
 		}
 		// return customer
 		return cus.get();
+	}
+
+	@Override
+	public CustomerDto getCusDtoById(int cusId) throws CustomerNotFoundException {
+
+		Optional<Customer> cus1 = cusRepo.findById(cusId);
+		if (cus1.isPresent()) {
+			Customer cus = cus1.get();
+			CustomerDto cusDto = new CustomerDto();
+			cusDto.setCusId(cus.getCusId());
+			cusDto.setCusName(cus.getCusName());
+			cusDto.setCusContactNo(cus.getCusContactNo());
+			cusDto.setEmail(cus.getLogin().getEmail());
+
+			return cusDto;
+		} else {
+			throw new CustomerNotFoundException("Customer not found with this id " + cusId);
+		}
+	}
+
+	@Override
+	public CustomerDto updateCusDtoById(int cusId, CustomerDto cusDto) throws CustomerNotFoundException {
+
+		// find customer based on id
+		Optional<Customer> cusOpt = cusRepo.findById(cusId);
+
+		// if customer present, update customer with new details else return exception
+		if (cusOpt.isPresent()) {
+			//convert CustomerDto to Customer obj
+			Customer dbCus = cusOpt.get();
+			dbCus.setCusName(cusDto.getCusName());
+			dbCus.setCusContactNo(cusDto.getCusContactNo());
+			Login login= dbCus.getLogin();
+			login.setEmail(cusDto.getEmail());
+			dbCus.setLogin(login);
+			cusRepo.save(dbCus);
+			return cusDto;
+		} else {
+			throw new CustomerNotFoundException("Customer not found with this id " + cusId);
+		}
+
 	}
 
 }
