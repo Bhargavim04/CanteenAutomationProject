@@ -13,10 +13,11 @@ public class CanteenFood {
 	@GeneratedValue
 	private int foodId;
 	private String foodName;
+	private String foodImage;
 	private double foodPrice;
 	private int foodQuantity;
 
-	public int getFoodId() {
+	/*public int getFoodId() {
 		return foodId;
 	}
 
@@ -58,6 +59,6 @@ public class CanteenFood {
 		this.foodPrice = foodPrice;
 		this.foodQuantity = foodQuantity;
 
-	}
+	}*/
 
 }
