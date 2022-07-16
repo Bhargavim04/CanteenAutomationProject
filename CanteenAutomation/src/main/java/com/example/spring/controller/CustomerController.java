@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring.dto.CustomerDto;
+import com.example.spring.dto.RegRespDto;
+import com.example.spring.dto.RegisterDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
+import com.example.spring.exception.CustomerFoundException;
 import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.service.ICustomerService;
 
@@ -55,6 +58,14 @@ public class CustomerController {
 	@PostMapping("/customer")
 	ResponseEntity<Customer> addCustomer(@Valid @RequestBody Customer cus) {
 		Customer newCus = cusServ.addCustomer(cus);
+		return new ResponseEntity<>(newCus, HttpStatus.CREATED);
+	}
+
+	// Register customer
+	@PostMapping("/customer/register")
+	ResponseEntity<RegRespDto> regEmployee(@Valid @RequestBody RegisterDto cus) throws CustomerFoundException {
+		System.out.println();
+		RegRespDto newCus = cusServ.regCustomer(cus);
 		return new ResponseEntity<>(newCus, HttpStatus.CREATED);
 	}
 

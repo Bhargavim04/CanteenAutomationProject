@@ -18,4 +18,6 @@ public class Login {
 	@Email(message = "Enter valid email address")
 	private String email;
 	private String password;
+	private String role = "customer";
+	private boolean isLoggedIn = false;
 }

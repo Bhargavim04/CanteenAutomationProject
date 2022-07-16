@@ -2,9 +2,14 @@ package com.example.spring.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.example.spring.dto.CustomerDto;
+import com.example.spring.dto.RegRespDto;
+import com.example.spring.dto.RegisterDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
+import com.example.spring.exception.CustomerFoundException;
 import com.example.spring.exception.CustomerNotFoundException;
 
 public interface ICustomerService {
@@ -24,5 +29,7 @@ public interface ICustomerService {
 	CustomerDto getCusDtoById(int cusId) throws CustomerNotFoundException;
 
 	CustomerDto updateCusDtoById(int cusId, CustomerDto cusDto) throws CustomerNotFoundException;
+
+	RegRespDto regCustomer(RegisterDto cus) throws CustomerFoundException;
 
 }

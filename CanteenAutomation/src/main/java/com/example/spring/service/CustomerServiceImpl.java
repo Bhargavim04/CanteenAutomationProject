@@ -7,17 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.spring.dto.CustomerDto;
+import com.example.spring.dto.RegRespDto;
+import com.example.spring.dto.RegisterDto;
 import com.example.spring.entity.Address;
 import com.example.spring.entity.Customer;
 import com.example.spring.entity.Login;
 import com.example.spring.exception.CustomerNotFoundException;
+import com.example.spring.exception.CustomerFoundException;
 import com.example.spring.repository.ICustomerRepository;
+import com.example.spring.repository.ILoginRepository;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService {
 
 	@Autowired
 	ICustomerRepository cusRepo;
+	
+	@Autowired
+	ILoginRepository loginRepo;
 
 	// get all customer details
 	@Override
@@ -134,6 +141,45 @@ public class CustomerServiceImpl implements ICustomerService {
 			throw new CustomerNotFoundException("Customer not found with this id " + cusId);
 		}
 
+	}
+
+	@Override
+	public RegRespDto regCustomer(RegisterDto regDto) throws CustomerFoundException {
+		
+		Optional<Login> loginOpt = loginRepo.findById(regDto.getEmail());
+		if(loginOpt.isPresent()) {
+			throw new CustomerFoundException("Given email address "+regDto.getEmail()+" present already! Choose different one");
+		}
+		
+		// Convert RegisterDto to customer obj
+		// Create cus obj
+		Customer cus = new Customer();
+		
+		// Update cus obj details
+		cus.setCusName(regDto.getCusName());
+		cus.setCusContactNo(regDto.getCusContactNo());
+		
+		Login login = new Login();
+		login.setEmail(regDto.getEmail());
+		login.setPassword(regDto.getPassword());
+		login.setRole(regDto.getRole());
+		login.setLoggedIn(false);
+		
+		cus.setLogin(login);
+		
+		// Save cus obj in db
+		Customer newCus = cusRepo.save(cus);
+		
+		// convert customer obj to RegRespDto obj
+		
+		RegRespDto resDto = new RegRespDto();
+		resDto.setCusName(newCus.getCusName());
+		resDto.setCusContactNo(newCus.getCusContactNo());
+		resDto.setEmail(newCus.getLogin().getEmail());
+		resDto.setRole(newCus.getLogin().getRole());
+		resDto.setLoggedIn(newCus.getLogin().isLoggedIn());
+		
+		return resDto;
 	}
 
 }
