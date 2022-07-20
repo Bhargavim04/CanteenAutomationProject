@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.example.spring.dto.AddressDto;
 import com.example.spring.dto.CustomerDto;
 import com.example.spring.dto.RegRespDto;
 import com.example.spring.dto.RegisterDto;
@@ -31,5 +32,7 @@ public interface ICustomerService {
 	CustomerDto updateCusDtoById(int cusId, CustomerDto cusDto) throws CustomerNotFoundException;
 
 	RegRespDto regCustomer(RegisterDto cus) throws CustomerFoundException;
+
+	Customer getCusByEmail(String email);
 
 }

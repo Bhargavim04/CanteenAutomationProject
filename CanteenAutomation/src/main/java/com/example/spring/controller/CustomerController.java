@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring.dto.AddressDto;
 import com.example.spring.dto.CustomerDto;
 import com.example.spring.dto.RegRespDto;
 import com.example.spring.dto.RegisterDto;
@@ -53,6 +54,13 @@ public class CustomerController {
 		CustomerDto cus = cusServ.getCusDtoById(cusId);
 		return new ResponseEntity<>(cus, HttpStatus.OK);
 	}
+	
+	//get customer based on email
+	@GetMapping("/customer/email/{email}")
+	ResponseEntity<Customer> getCusByEmail(@PathVariable("email") String email) throws CustomerNotFoundException {
+		Customer cus = cusServ.getCusByEmail(email);
+		return new ResponseEntity<>(cus, HttpStatus.OK);
+	}
 
 	// add new customer
 	@PostMapping("/customer")
@@ -63,7 +71,7 @@ public class CustomerController {
 
 	// Register customer
 	@PostMapping("/customer/register")
-	ResponseEntity<RegRespDto> regEmployee(@Valid @RequestBody RegisterDto cus) throws CustomerFoundException {
+	ResponseEntity<RegRespDto> regCustomer(@Valid @RequestBody RegisterDto cus) throws CustomerFoundException {
 		System.out.println();
 		RegRespDto newCus = cusServ.regCustomer(cus);
 		return new ResponseEntity<>(newCus, HttpStatus.CREATED);

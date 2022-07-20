@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.spring.dto.LoginDto;
 import com.example.spring.dto.LoginRespDto;
+import com.example.spring.entity.Customer;
 import com.example.spring.entity.Login;
 import com.example.spring.exception.EmailNotFoundException;
 import com.example.spring.exception.InvalidCredentialsException;
+import com.example.spring.repository.ICustomerRepository;
 import com.example.spring.repository.ILoginRepository;
 
 @Service
@@ -17,7 +19,10 @@ public class LoginServiceImpl implements ILoginService {
 
 	@Autowired
 	ILoginRepository loginRepo;
-
+	
+	@Autowired
+	ICustomerRepository cusRepo;
+	
 	@Override
 	public Login login(Login credentials) {
 
@@ -41,12 +46,12 @@ public class LoginServiceImpl implements ILoginService {
 				login.setLoggedIn(true);
 				Login updatedLogin = loginRepo.save(login);
 				
-				// convert Login to LoginRespDto Obj
+				 //convert Login to LoginRespDto Obj
 				LoginRespDto resDto = new LoginRespDto();
 				resDto.setEmail(login.getEmail());
 				resDto.setRole(login.getRole());
 				resDto.setLoggedIn(login.isLoggedIn());
-				
+			
 				return resDto;
 				
 			} else {

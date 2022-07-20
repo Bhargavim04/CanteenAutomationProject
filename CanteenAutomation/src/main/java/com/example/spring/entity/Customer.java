@@ -41,9 +41,9 @@ public class Customer {
 	private Login login;
 	
 	// OneToMany unidirectional relationship
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "customer_id", referencedColumnName = "cusId")
+	@JoinColumn(name = "cusId", referencedColumnName = "cusId")
 	private List<Address> address;
 
 	public Customer(int cusId, String cusName, String cusContactNo) {

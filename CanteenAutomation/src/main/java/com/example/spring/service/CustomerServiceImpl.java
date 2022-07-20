@@ -143,6 +143,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	}
 
+	//Registration
 	@Override
 	public RegRespDto regCustomer(RegisterDto regDto) throws CustomerFoundException {
 		
@@ -181,5 +182,12 @@ public class CustomerServiceImpl implements ICustomerService {
 		
 		return resDto;
 	}
+	
+	//Get request- get customer by email which is foreign key in login
+	@Override
+	public Customer getCusByEmail(String email) {
+		return cusRepo.getCusByEmail(email);
+	}
+
 
 }
