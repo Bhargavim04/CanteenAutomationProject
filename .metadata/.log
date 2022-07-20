@@ -3950,3 +3950,15 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-20 17:57:28.275
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.tqDpkCdo
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-20 17:57:28.278
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.tqDpkCdo
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-20 17:57:28.281
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-20 17:57:28.282
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.tqDpkCdo => OK
