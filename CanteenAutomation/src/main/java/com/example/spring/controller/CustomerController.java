@@ -27,7 +27,7 @@ import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.service.ICustomerService;
 
 @RestController
-@CrossOrigin // (origins="http://localhost:3000")
+@CrossOrigin 
 public class CustomerController {
 
 	@Autowired
