@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring.entity.Address;
-import com.example.spring.entity.Customer;
-import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.service.IAddressService;
 
 @RestController

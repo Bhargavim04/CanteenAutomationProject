@@ -24,17 +24,4 @@ public class CartExceptionHandler {
 		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND); // 404 not found
 	}
 
-//	@ExceptionHandler(InvalidCredentialsException.class)
-//	public ResponseEntity<ErrorResponse> handleException(InvalidCredentialsException exception) {
-//		ErrorResponse error = new ErrorResponse();
-//
-//		error.setStatus(HttpStatus.UNAUTHORIZED.value());   //401 not found
-//		error.setMessage(exception.getMessage());      //get message from exception
-//		//error.setTimeStamp(System.currentTimeMillis());
-//		error.setTimeStamp(LocalDateTime.now());    //update system time
-//
-//		return new ResponseEntity<> (error, HttpStatus.UNAUTHORIZED);  //401 unauthorized
-//
-//	}
-
 }

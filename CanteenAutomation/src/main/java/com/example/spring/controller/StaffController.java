@@ -18,7 +18,7 @@ import com.example.spring.service.IStaffService;
 
 @RestController
 public class StaffController {
-	private static final String StaffId = null;
+	
 	@Autowired
 	IStaffService staffServ;
 

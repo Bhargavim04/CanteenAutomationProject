@@ -2,9 +2,6 @@ package com.example.spring.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
-import com.example.spring.dto.AddressDto;
 import com.example.spring.dto.CustomerDto;
 import com.example.spring.dto.RegRespDto;
 import com.example.spring.dto.RegisterDto;

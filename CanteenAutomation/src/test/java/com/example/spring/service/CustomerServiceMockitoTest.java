@@ -75,11 +75,11 @@ public class CustomerServiceMockitoTest {
 		assertEquals("Ram", emp1.getCusName());
 	}
 	
-	/*@Test
+	@Test
 	void testUpdateCustomerById() throws CustomerNotFoundException {
 		Address addr = new Address(10,234,"Yelahanka","Bangalore","Karnataka",560064);
 		List<Address> list= new ArrayList();
-		Login login = new Login("abc@gmail.com","abc@123");
+		Login login = new Login("abc@gmail.com","abc@123","customer",false);
 		Customer cus = new Customer();
 		cus.setCusId(10);
 		cus.setCusName("Ravi");
@@ -105,7 +105,7 @@ public class CustomerServiceMockitoTest {
 	void testUpdateCustomerAddr() throws CustomerNotFoundException {
 		Address addr = new Address(10,234,"Yelahanka","Bangalore","Karnataka",560064);
 		List<Address> listAddr= new ArrayList();
-		Login login = new Login("ram@gmail.com","ram@123");
+		Login login = new Login("ram@gmail.com","ram@123","customer",false);
 		Customer cus = new Customer();
 		cus.setCusId(10);
 		cus.setCusName("Ravi");
@@ -125,7 +125,7 @@ public class CustomerServiceMockitoTest {
 		Customer cus2  =cusServ.updateCusAddr(10, addr);
 		assertEquals(listAddr, cus2.getAddress());
 	}
-	*/
+	
 	
 	@Test
 	void testDeleteCustomer() throws CustomerNotFoundException {

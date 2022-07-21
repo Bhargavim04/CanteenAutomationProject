@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.spring.dto.AddressDto;
 import com.example.spring.dto.CustomerDto;
 import com.example.spring.dto.RegRespDto;
 import com.example.spring.dto.RegisterDto;
