@@ -1,39 +1,72 @@
 package com.example.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.spring.entity.Order;
+import com.example.spring.entity.OrderEntity;
+import com.example.spring.exception.OrderAlreadyExistsException;
+import com.example.spring.exception.OrderNotFondException;
 import com.example.spring.repository.OrderRepository;
 
+
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private OrderRepository orderRepository;
 	
-	private final OrderRepository orderRepository;
-	
-	public OrderServiceImpl(OrderRepository orderRepository) {
-		this.orderRepository=orderRepository;
-	}
 	@Override
-	public Order createOrder(Order order) {
-		return orderRepository.insertOrder(order);
+	public List<OrderEntity> getAllOrders() {
+		return orderRepository.findAll();
 	}
 
 	@Override
-	public List<Order> listAllOrders() {
-		return orderRepository.listAllOrders();
+	public Optional<OrderEntity> getOrder(int id) throws OrderNotFondException {
+		Optional<OrderEntity> orderData = orderRepository.findById(id);
+		if(!orderData.isEmpty()) {
+			return orderRepository.findById(id);
+		}
+		else {
+			throw new OrderNotFondException("order Not Found with id "+id);
+		}
 	}
+
 	@Override
-	public Order selectOrderById(Long id){
-		return orderRepository.selectOrderById(id);
+	public OrderEntity addOrder(OrderEntity orderEntity) throws OrderAlreadyExistsException {
+		Optional<OrderEntity> orderData = orderRepository.findById(orderEntity.getOrderId());
+		if(orderData.isEmpty()) {
+			return orderRepository.save(orderEntity);
+		}
+		else {
+			throw new OrderAlreadyExistsException("Order already exists with id "+orderEntity.getOrderId());
+		}
 	}
+
 	@Override
-	public Long deleteOrderById(Long id) {
-		return orderRepository.deleteOrderById(id);
+	public Optional<OrderEntity> deleteOrder(int id) throws OrderNotFondException {
+		Optional<OrderEntity> orderData = orderRepository.findById(id);
+		if(!orderData.isEmpty()) {
+			orderRepository.deleteById(id);
+			return orderData;
+		}
+		else {
+			throw new OrderNotFondException("Order Not Found with id "+id);
+		}
 	}
+
 	@Override
-	public Long updateOrderById(Long id, Order order) {
-		return orderRepository.updateOrderById(id, order);
+	public OrderEntity updateOrder(int id, OrderEntity orderEntity) throws OrderNotFondException {
+		Optional<OrderEntity> orderData = orderRepository.findById(id);
+		if(!orderData.isEmpty()) {
+			orderEntity.setOrderId(id);
+			return orderRepository.save(orderEntity);
+		}
+		else {
+			throw new OrderNotFondException("Order Not Found with id "+id);
+		}
 	}
+
 }

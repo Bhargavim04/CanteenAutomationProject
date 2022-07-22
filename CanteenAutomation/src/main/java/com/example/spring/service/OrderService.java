@@ -1,13 +1,27 @@
 package com.example.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.example.spring.entity.Order;
+import org.springframework.stereotype.Service;
 
+import com.example.spring.entity.OrderEntity;
+import com.example.spring.exception.OrderAlreadyExistsException;
+import com.example.spring.exception.OrderNotFondException;
+
+
+
+@Service
 public interface OrderService {
-	public Order createOrder(Order order);
-	public List<Order> listAllOrders();
-	public Order selectOrderById(Long id);
-	public Long deleteOrderById(Long id);
-	public Long updateOrderById(Long id,Order order);
+	
+	public List<OrderEntity> getAllOrders();
+	
+	public Optional<OrderEntity> getOrder(int id) throws OrderNotFondException;
+	
+	public OrderEntity addOrder(OrderEntity  orderEntity) throws OrderAlreadyExistsException;
+	
+	public Optional<OrderEntity> deleteOrder(int id) throws OrderNotFondException;
+	
+	public OrderEntity updateOrder(int id, OrderEntity orderEntity) throws OrderNotFondException;
+
 }
