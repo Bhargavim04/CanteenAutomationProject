@@ -1,39 +1,52 @@
 package com.example.spring.exception;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.example.spring.entity.ErrorResponse;
+
 @ControllerAdvice
 public class AllExceptionHandler {
 	
-	@ExceptionHandler({
-		OrderInvalidCredentialsException.class
-		})
-	public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
-	    Map<String, String> errors = new HashMap<>();
-	    ex.getBindingResult().getAllErrors().forEach((error) -> {
-	        String fieldName = ((FieldError) error).getField();
-	        String errorMessage = error.getDefaultMessage();
-	        errors.put(fieldName, errorMessage);
-	    });
-	    return errors;
+	@ExceptionHandler(OrderInvalidCredentialsException.class)
+	public ResponseEntity<ErrorResponse> handleException(OrderInvalidCredentialsException exception) {
+		ErrorResponse error = new ErrorResponse();
+		
+		error.setStatus(HttpStatus.UNAUTHORIZED.value()); // 401 unauthorized
+		error.setMessage(exception.getMessage()); //get message from exception
+		error.setTimeStamp(LocalDateTime.now()); // system time
+		
+		return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);  //404 Not found
+	}
+
+	@ExceptionHandler(OrderNotFondException.class)
+	public ResponseEntity<ErrorResponse> handleException(OrderNotFondException exception) {
+		ErrorResponse error = new ErrorResponse();
+		
+		error.setStatus(HttpStatus.NOT_FOUND.value()); // 404 not found
+		error.setMessage(exception.getMessage()); //get message from exception
+		error.setTimeStamp(LocalDateTime.now()); // system time
+		
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);  //404 Not found
 	}
 	
-	@ExceptionHandler({
-		OrderNotFondException.class,
-		OrderAlreadyExistsException.class,
-		Exception.class
-		})
-	public Map<String, String> handleAddressNotFoundException(Exception ex) {
-	    Map<String, String> errors = new HashMap<>();
-	    errors.put("Error", ex.toString());
-	    errors.put("Message", ex.getMessage());
-	    return errors;
+	@ExceptionHandler(OrderAlreadyExistsException.class)
+	public ResponseEntity<ErrorResponse> handleException(OrderAlreadyExistsException exception) {
+		ErrorResponse error = new ErrorResponse();
+		
+		error.setStatus(HttpStatus.NOT_FOUND.value()); // 404 not found
+		error.setMessage(exception.getMessage()); //get message from exception
+		error.setTimeStamp(LocalDateTime.now()); // system time
+		
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);  //404 Not found
 	}
 
 }

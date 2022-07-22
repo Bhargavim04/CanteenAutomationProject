@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
-    <fullyQualifiedTypeName name="org.springframework.web.context.request.WebRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.FieldError"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
     <fullyQualifiedTypeName name="com.example.spring.service.ICustomerService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
@@ -60,4 +52,12 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+    <fullyQualifiedTypeName name="com.project.CanteenAutomationSystem.Service.OrderService"/>
+    <fullyQualifiedTypeName name="com.example.spring.repository.OrderRepository"/>
+    <fullyQualifiedTypeName name="com.example.spring.entity.OrderEntity"/>
+    <fullyQualifiedTypeName name="com.example.spring.service.OrderService"/>
+    <fullyQualifiedTypeName name="com.example.spring.exception.OrderNotFondException"/>
+    <fullyQualifiedTypeName name="com.example.spring.exception.OrderAlreadyExistsException"/>
+    <fullyQualifiedTypeName name="com.example.spring.entity.ErrorResponse"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 </qualifiedTypeNameHistroy>
