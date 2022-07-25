@@ -27,10 +27,7 @@
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="com.example.spring.dto.CustomerDto"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.Login"/>
-    <fullyQualifiedTypeName name="com.example.spring.dto.RegRespDto"/>
-    <fullyQualifiedTypeName name="com.example.spring.dto.RegisterDto"/>
     <fullyQualifiedTypeName name="com.example.spring.repository.ILoginRepository"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.LoginRespDto"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.LoginDto"/>
@@ -57,7 +54,10 @@
     <fullyQualifiedTypeName name="com.example.spring.entity.OrderEntity"/>
     <fullyQualifiedTypeName name="com.example.spring.service.OrderService"/>
     <fullyQualifiedTypeName name="com.example.spring.exception.OrderNotFondException"/>
-    <fullyQualifiedTypeName name="com.example.spring.exception.OrderAlreadyExistsException"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.ErrorResponse"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.example.spring.exception.OrderAlreadyExistsException"/>
+    <fullyQualifiedTypeName name="com.example.spring.dto.CustomerDto"/>
+    <fullyQualifiedTypeName name="com.example.spring.dto.RegisterDto"/>
+    <fullyQualifiedTypeName name="com.example.spring.dto.RegRespDto"/>
 </qualifiedTypeNameHistroy>

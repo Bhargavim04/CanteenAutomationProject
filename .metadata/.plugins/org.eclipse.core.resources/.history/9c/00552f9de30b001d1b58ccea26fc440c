@@ -1,0 +1,35 @@
+package com.example.spring.entity;
+
+import javax.persistence.Table;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Data
+@Table(name="CardDetails")
+public class Card {
+	@Id
+	@GeneratedValue
+	private int cardId;
+	
+	@Column(name="cardHolderName")
+	private String cardHolderName;
+	
+	@Column(name="cardNo")
+	private int cardNo;
+	
+	@Column(name="cardBnakName")
+	private String cardBankName;
+	
+	@Column(name="expDate")
+	private String expDate;
+	
+	@Column(name="cvv")
+	private int cvv;
+
+}

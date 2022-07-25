@@ -5,7 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.spring.dto.PaymentDto;
 import com.example.spring.entity.Payment;
+import com.example.spring.exception.PaymentNotFoundException;
 import com.example.spring.repository.IPaymentRepository;
 
 @Service
@@ -15,7 +17,7 @@ public class PaymentServiceImpl implements IPaymentService {
 	IPaymentRepository payRepo;
 
 	@Override
-	public List<Payment> getAllPayment() {
+	public List<Payment> getAllPayments() {
 		return payRepo.findAll();
 	}
 
@@ -24,24 +26,15 @@ public class PaymentServiceImpl implements IPaymentService {
 		return payRepo.save(payment);
 	}
 
-	/*
-	 * //update payment id
-	 * 
-	 * @Override public Payment updatePaymentId(int payId) {
-	 * 
-	 * //find pay by id return.payRepo.save(dbPay);
-	 * 
-	 * }else { //if pay not found in db, return null or throw exception return null;
-	 * }
-	 */
 	@Override
-	public Payment getPaymentById(int PaymentId) {
+	public Payment getPaymentById(int paymentId) throws PaymentNotFoundException {
 
-		Optional<Payment> pay = payRepo.findById(PaymentId);
+		Optional<Payment> pay = payRepo.findById(paymentId);
 		if (pay.isPresent()) {
 			return pay.get();
 		} else {
-			return null;
+			throw new PaymentNotFoundException("paymentId not found with this is id" + paymentId);
+
 		}
 
 	}
@@ -59,32 +52,36 @@ public class PaymentServiceImpl implements IPaymentService {
 	}
 
 	@Override
-	public List<Payment> getAllPayments() {
-		// TODO Auto-generated method stub
-		return payRepo.findAll();
+	public Payment deletePayment(int paymentId) {
+		// find payment based on payment id
+		Optional<Payment> payment = payRepo.findById(paymentId);
 
+		// delete payment if present else return null or throw exception
+		if (payment.isPresent()) {
+			payRepo.deleteById(paymentId);
+		} else {
+			return null;
+		}
+		// return payment
+		return payment.get();
 	}
 
 	@Override
-	public Payment updatePaymentById(int paymentId, Payment payment) {
-		// TODO Auto-generated method stub
-		return null;
+	public Payment updatePaymentById(int paymentId, Payment payment) throws PaymentNotFoundException {
+		// find payment based on id
+		Optional<Payment> dbPayment = payRepo.findById(paymentId);
+
+		// if payment present, update payment with new details else return
+		// exception/null
+		if (dbPayment.isPresent()) {
+			return payRepo.save(payment);
+		} else {
+			throw new PaymentNotFoundException("Payment not found with payment id " + paymentId);
+		}
 	}
 
 	@Override
-	public Payment addPayment1(Payment payment) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Payment getPayById(int payId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Payment updatePaymentId(int payId) {
+	public PaymentDto getpaymentDtoById(int paymentId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
