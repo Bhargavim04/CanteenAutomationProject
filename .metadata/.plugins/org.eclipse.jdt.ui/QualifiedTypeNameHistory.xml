@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.example.spring.service.ICustomerService"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringExtension"/>
-    <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.test.mock.mockito.MockBean"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="org.mockito.Mockito"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.CanteenFood"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.Order"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
     <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Disabled"/>
-    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.FoodItem"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="javax.validation.Valid"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="com.example.spring.entity.Login"/>
-    <fullyQualifiedTypeName name="com.example.spring.repository.ILoginRepository"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.LoginRespDto"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.LoginDto"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PatchMapping"/>
@@ -60,4 +48,16 @@
     <fullyQualifiedTypeName name="com.example.spring.dto.CustomerDto"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.RegisterDto"/>
     <fullyQualifiedTypeName name="com.example.spring.dto.RegRespDto"/>
+    <fullyQualifiedTypeName name="com.example.spring.repository.ILoginRepository"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="com.example.spring.dto.paymentDto"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="com.example.spring.exception.PaymentNotFoundException"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

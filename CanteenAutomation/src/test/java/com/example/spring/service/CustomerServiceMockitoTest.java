@@ -118,30 +118,6 @@ public class CustomerServiceMockitoTest {
 		assertEquals("Ram", cus1.getCusName());
 	}
 	
-//	@Test
-//	void testRegCustomer() throws CustomerFoundException {
-//		Customer cus = new Customer();
-//		cus.setCusName("Rajesh");
-//		cus.setCusContactNo("9856433212");
-//		Login login = new Login();
-//		login.setEmail("rajesh@gmail.com");
-//		login.setPassword("rajesh123");
-//		login.setRole("customer");
-//		cus.setLogin(login);
-//		
-//	  	Mockito.when(loginRepo.findById("rajesh@gmail.com")).thenReturn(login);
-//		Mockito.when(cusRepo.save(cus)).thenReturn(cus);
-//		RegisterDto reg = new RegisterDto();
-//		reg.setCusName(cus.getCusName());
-//		reg.setCusContactNo(cus.getCusContactNo());
-//		reg.setEmail(cus.getLogin().getEmail());
-//		reg.setPassword(cus.getLogin().getPassword());
-//		reg.setRole(cus.getLogin().getRole());
-//		
-//		RegRespDto resp= cusServ.regCustomer(reg);
-//		assertEquals("Rajesh", resp.getCusName());
-//	}
-	
 	@Test
 	void testUpdateCustomerById() throws CustomerNotFoundException {
 		Address addr = new Address(10,234,"Yelahanka","Bangalore","Karnataka",560064);
