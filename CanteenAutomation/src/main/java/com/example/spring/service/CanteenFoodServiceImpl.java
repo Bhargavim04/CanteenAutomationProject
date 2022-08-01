@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.spring.dto.CanteenFoodDto;
 import com.example.spring.entity.CanteenFood;
 import com.example.spring.exception.CanteenFoodNotFoundException;
 import com.example.spring.repository.CanteenFoodRepository;
@@ -13,7 +14,7 @@ import com.example.spring.repository.CanteenFoodRepository;
 @Service
 public class CanteenFoodServiceImpl implements ICanteenFoodService {
 
-	private static final CanteenFood CanteenFood = null;
+	//private static final CanteenFood CanteenFood = null;
 	@Autowired
 	CanteenFoodRepository canteenFoodRepository;
 
@@ -67,6 +68,42 @@ public class CanteenFoodServiceImpl implements ICanteenFoodService {
 	public com.example.spring.entity.CanteenFood add(com.example.spring.entity.CanteenFood id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public CanteenFoodDto getCanteenFoodDtoById(int foodId) throws CanteenFoodNotFoundException {
+		Optional<CanteenFood> food1 = canteenFoodRepository.findById(foodId);
+		if (food1.isPresent()) {
+			CanteenFood food = food1.get();
+			CanteenFoodDto canteenDto = new CanteenFoodDto();
+			canteenDto.setFoodId(food.getFoodId());
+			canteenDto.setFoodName(food.getFoodName());
+			canteenDto.setFoodPrice(food.getFoodPrice());
+			canteenDto.setFoodQuantity(food.getFoodQuantity());
+			
+
+			return canteenDto;
+		} else {
+			throw new CanteenFoodNotFoundException("CanteenFood not found with this id " + foodId);
+		}
+	}
+
+	@Override
+	public CanteenFood updateCanteenFoodDtoById(int foodId, CanteenFoodDto foodDto) throws CanteenFoodNotFoundException {
+		Optional<CanteenFood> foodOpt = canteenFoodRepository.findById(foodId);
+
+		// if customer present, update customer with new details else return exception
+		if (foodOpt.isPresent()) {
+			//convert CustomerDto to Customer obj
+			CanteenFood dbfood = foodOpt.get();
+			dbfood.setFoodName(foodDto.getFoodName());
+			dbfood.setFoodPrice(foodDto.getFoodPrice());
+			dbfood.setFoodQuantity(foodDto.getFoodQuantity());
+			
+			return dbfood;
+		} else {
+			throw new CanteenFoodNotFoundException("Customer not found with this id " + foodId);
+		}
 	}
 
 }

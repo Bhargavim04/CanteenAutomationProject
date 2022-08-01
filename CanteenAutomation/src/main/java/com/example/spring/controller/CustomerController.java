@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring.dto.AddressDto;
+import com.example.spring.dto.CustomerDetailsDto;
 import com.example.spring.dto.CustomerDto;
 import com.example.spring.dto.RegRespDto;
 import com.example.spring.dto.RegisterDto;
@@ -27,7 +29,7 @@ import com.example.spring.exception.CustomerNotFoundException;
 import com.example.spring.service.ICustomerService;
 
 @RestController
-@CrossOrigin 
+@CrossOrigin
 public class CustomerController {
 
 	@Autowired
@@ -53,11 +55,27 @@ public class CustomerController {
 		CustomerDto cus = cusServ.getCusDtoById(cusId);
 		return new ResponseEntity<>(cus, HttpStatus.OK);
 	}
-	
-	//get customer based on email
+
+	// get customer based on email
 	@GetMapping("/customer/email/{email}")
 	ResponseEntity<Customer> getCusByEmail(@PathVariable("email") String email) throws CustomerNotFoundException {
 		Customer cus = cusServ.getCusByEmail(email);
+		return new ResponseEntity<>(cus, HttpStatus.OK);
+	}
+
+	// get customer based on email
+	@GetMapping("/customer/addr/cusId/{email}")
+	ResponseEntity<AddressDto> getCusAddrByEmail(@PathVariable("email") String email)
+			throws CustomerNotFoundException {
+		AddressDto addr = cusServ.getCusAddrByEmail(email);
+		return new ResponseEntity<>(addr, HttpStatus.OK);
+	}
+
+	// get customer based on email
+	@GetMapping("/customer/detail/email/{email}")
+	ResponseEntity<CustomerDto> getCusDetailsByEmail(@PathVariable("email") String email)
+			throws CustomerNotFoundException {
+		CustomerDto cus = cusServ.getCusDetailsByEmail(email);
 		return new ResponseEntity<>(cus, HttpStatus.OK);
 	}
 

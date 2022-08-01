@@ -16,6 +16,6 @@ public class CanteenFood {
 	private String foodImage;
 	private double foodPrice;
 	private int foodQuantity;
-
+	
 
 }

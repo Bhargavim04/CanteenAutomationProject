@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.example.spring.entity.Customer;
 
 @Repository
-public interface ICustomerRepository extends JpaRepository<Customer, Integer>{
+public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
-	//Native Query
-	@Query(value="select * from customer inner join login on customer.email=login.email where customer.email=:email", nativeQuery=true)
+	// Native Query
+	@Query(value = "select * from customer inner join login on customer.email=login.email where customer.email=:email", nativeQuery = true)
 	Customer getCusByEmail(@Param("email") String email);
 }

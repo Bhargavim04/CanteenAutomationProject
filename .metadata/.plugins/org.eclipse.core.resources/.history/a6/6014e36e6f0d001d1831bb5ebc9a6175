@@ -1,0 +1,36 @@
+package com.example.spring.service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.spring.dto.LoginDto;
+import com.example.spring.dto.LoginRespDto;
+import com.example.spring.entity.Login;
+import com.example.spring.exception.InvalidCredentialsException;
+
+@SpringBootTest
+public class LoginServiceTest {
+
+	@Autowired
+	ILoginService loginServ;
+	
+	@Test
+	//@Disabled
+	void testLogin() throws InvalidCredentialsException {
+		Login login = new Login("sneha@gmail.com","sneha123","customer",true);
+		Login newLogin = loginServ.login(login);
+		assertEquals("sneha@gmail.com",newLogin.getEmail());
+	}
+	
+	@Test
+	//@Disabled
+	void testLoginDto() throws InvalidCredentialsException {
+		LoginDto login = new LoginDto("ram@gmail.com","ram123","customer");
+		LoginRespDto newLogin = loginServ.login(login);
+		assertEquals("ram@gmail.com",newLogin.getEmail());
+	}
+}

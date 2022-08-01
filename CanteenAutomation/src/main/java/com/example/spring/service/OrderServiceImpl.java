@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Optional<OrderEntity> getOrder(int id) throws OrderNotFondException {
 		Optional<OrderEntity> orderData = orderRepository.findById(id);
-		if(!orderData.isEmpty()) {
+		if(orderData.isPresent()) {
 			return orderRepository.findById(id);
 		}
 		else {
@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public OrderEntity addOrder(OrderEntity orderEntity) throws OrderAlreadyExistsException {
 		Optional<OrderEntity> orderData = orderRepository.findById(orderEntity.getOrderId());
-		if(orderData.isEmpty()) {
+		if(orderData.isPresent()) {
 			return orderRepository.save(orderEntity);
 		}
 		else {
@@ -48,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Optional<OrderEntity> deleteOrder(int id) throws OrderNotFondException {
 		Optional<OrderEntity> orderData = orderRepository.findById(id);
-		if(!orderData.isEmpty()) {
+		if(orderData.isPresent()) {
 			orderRepository.deleteById(id);
 			return orderData;
 		}
@@ -60,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public OrderEntity updateOrder(int id, OrderEntity orderEntity) throws OrderNotFondException {
 		Optional<OrderEntity> orderData = orderRepository.findById(id);
-		if(!orderData.isEmpty()) {
+		if(orderData.isPresent()) {
 			orderEntity.setOrderId(id);
 			return orderRepository.save(orderEntity);
 		}

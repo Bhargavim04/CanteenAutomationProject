@@ -1,14 +1,13 @@
 package com.example.spring.dto;
 
+import java.util.List;
+
+import com.example.spring.entity.Address;
+
 import lombok.Data;
 
 @Data
 public class AddressDto {
 
-	private int houseNo;
-	private String street;
-	private String city;
-	private String state;
-	private int pinCode;
-	
+	private List<Address> address;
 }
