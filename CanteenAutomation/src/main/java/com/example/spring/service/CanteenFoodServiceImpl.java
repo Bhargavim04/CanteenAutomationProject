@@ -56,7 +56,7 @@ public class CanteenFoodServiceImpl implements ICanteenFoodService {
 		Optional<CanteenFood> canteenFood = canteenFoodRepository.findById(foodId);
 		if (canteenFood.isPresent()) {
 			CanteenFood cf = canteenFood.get();
-			cf.setFoodQuantity(foodQuantity);
+			cf.setFoodQty(foodQuantity);
 			return canteenFoodRepository.save(cf);
 		} else {
 			throw new CanteenFoodNotFoundException("CanteenFood not found with food id " + foodId);
@@ -79,9 +79,8 @@ public class CanteenFoodServiceImpl implements ICanteenFoodService {
 			canteenDto.setFoodId(food.getFoodId());
 			canteenDto.setFoodName(food.getFoodName());
 			canteenDto.setFoodPrice(food.getFoodPrice());
-			canteenDto.setFoodQuantity(food.getFoodQuantity());
-			
-
+			canteenDto.setFoodQuantity(food.getFoodQty());
+			canteenDto.setFoodImage(food.getFoodImage());
 			return canteenDto;
 		} else {
 			throw new CanteenFoodNotFoundException("CanteenFood not found with this id " + foodId);
@@ -98,8 +97,8 @@ public class CanteenFoodServiceImpl implements ICanteenFoodService {
 			CanteenFood dbfood = foodOpt.get();
 			dbfood.setFoodName(foodDto.getFoodName());
 			dbfood.setFoodPrice(foodDto.getFoodPrice());
-			dbfood.setFoodQuantity(foodDto.getFoodQuantity());
-			
+			dbfood.setFoodImage(foodDto.getFoodImage());
+			canteenFoodRepository.save(dbfood);
 			return dbfood;
 		} else {
 			throw new CanteenFoodNotFoundException("Customer not found with this id " + foodId);

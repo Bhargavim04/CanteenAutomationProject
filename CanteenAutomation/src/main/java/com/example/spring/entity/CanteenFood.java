@@ -15,7 +15,7 @@ public class CanteenFood {
 	private String foodName;
 	private String foodImage;
 	private double foodPrice;
-	private int foodQuantity;
-	
+	private int foodQty;
+	private int itemTotalPrice;
 
 }

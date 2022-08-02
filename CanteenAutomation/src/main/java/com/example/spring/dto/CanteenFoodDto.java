@@ -9,5 +9,6 @@ public class CanteenFoodDto {
 	private String foodName;
 	private double foodPrice;
 	private int foodQuantity;
+	private String foodImage;
 
 }
